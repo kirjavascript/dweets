@@ -211,21 +211,50 @@ c.height|=0
 })(900, 1e3, 240, 2.7, 0);
 
 
- with(x)(d=(x1, y1, r, rotate, depth) =>{
+ with(x)(d=([x1, y1], r, rotate, depth) =>{
     if (depth < 9) {
-    	beginPath(fillStyle=`#1${depth}0`)
-    	p=[];
-        for(i=4;i--;) {
+    p=[beginPath(fillStyle=`#1`+depth+0)];
+        for(i=4;i--;i<2&&(p[i]=[x2,y2]))
         	lineTo(
             	x2=x1+(S(c=i+rotate)*r),
             	y2=y1+(C(c)*r)
             )
-            if (i<2)p[i]=[x2,y2]
-        }
 		fill();
-        p.map(([x,y],i) => (
-            d(x, y, r*.8, rotate*(i?1.1:.8), depth+1)
+        p.map((a,i) => (
+            d(a, r*.8, rotate*(i?1.1:.8), depth+1)
         ))
      }
 
-})(900, 1e3, 240, 2.7, 0);
+})([1e3, 1e3], 240, 2.7, 0);
+
+ with(x)(d=([x1, y1], r, rotate, depth) =>{
+    if (depth < 9) {
+    p=[beginPath(fillStyle=`#1`+depth+0)];
+        for(i=4;i--;i<2&&(p[i]=Q))
+        	lineTo(
+            	...(Q=[x1+(S(c=i+rotate)*r),
+            	y1+(C(c)*r)])
+            )
+		fill();
+        p.map((a,i) => (
+            d(a, r*.8, rotate*(i?1.1:.8), depth+1)
+        ))
+     }
+
+})([1e3, 1e3], 240, 2.7, 0);
+
+ with(x)(d=([x1, y1], r, rotate, depth) =>{
+    if (depth < 9) {
+    p=[beginPath(fillStyle=`#1`+depth+0)];
+        for(i=4;i--;)
+        	lineTo(
+            	...(p[i%2]=[x1+(S(c=i+rotate)*r),
+            	y1+(C(c)*r)])
+            );
+		fill();
+        p.map((a,i) => (
+            d(a, r*.8, rotate*(i?1.1:.8), depth+1)
+        ))
+     }
+
+})([1e3, 1e3], 240, 2.7, 0);
