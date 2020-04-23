@@ -1,3 +1,16 @@
+// parralax
+// union jack
+// racetrack + drawImage
+//const {width: w, height: h} = c
+x.fillStyle='blue';
+x.fillRect(0,0,w,h)
+x.fillStyle='white';
+x.fillRect(0,h/2-(h/6),w,h/3)
+x.fillRect(w/2-(w/6),0,w/3,h)
+x.fillStyle='red';
+x.fillRect(0,h/2-(h/10),w,h/5)
+
+
 // sine wave:
 c.width|=0 // clear the canvas
 //x.moveTo(0, 0);
@@ -36,3 +49,12 @@ q=260;x.fillText(s[i],i%4*q,(0|i/4)*q+q);
 
 // erratic timing
 x.fillText(([]+t/6)[10],c.width=-1,500)
+//
+c.style.filter=``;
+
+x.fillStyle=`hsl(${10*(Math.random())+180} 99%75%`
+//x.fillRect(S(t*2)*9+(c.width/2),C(t*2)*9+(c.height/2),20,20)
+//x.fillRect(0|Math.random()*c.width,C(t)*c.height/2+500,40,40)
+x.font='6in"'
+x.fillText(c,-200,700+C(t)*90)
+x.drawImage(c, 0, 0, c.width, c.height, -40, -40, c.width+80, c.height+80)
